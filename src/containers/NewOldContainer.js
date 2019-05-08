@@ -2,7 +2,8 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux'
 import NewDeck from '../components/NewDeck'
 import OldDeck from '../components/OldDeck'
-import {fetchDecks} from '../actions/decks'
+import ChooseDeckButton from '../components/ChooseDeckButton'
+import {fetchDecks, createDeck} from '../actions/decks'
 
 class NewOldContainer extends Component {
 
@@ -18,9 +19,18 @@ class NewOldContainer extends Component {
 
   handleClick(event){
     event.preventDefault()
-     // this.props.fetchDecks()
+    debugger;
+    if ( event.target.name === "new" ){
+      this.props.createDeck()
+      // fetch to create new deck
+      // render game with the new deck
+    } else {
+      // go to page with all the available Decks
+    }
   }
 
+
+// elevate this to <App />
   componentDidMount(){
     //dispatch to fetch old decks if any exist
     this.props.fetchDecks()
@@ -36,8 +46,8 @@ class NewOldContainer extends Component {
       <h4> Would you rather play with a new deck or an old deck? </h4>
 
       <div>
-        <NewDeck handleClick={this.handleClick} />
-        <OldDeck handleClick={this.handleClick} />
+        <ChooseDeckButton handleClick={this.handleClick} name="new" text="Play with New Deck" />
+        <ChooseDeckButton handleClick={this.handleClick} name="old" text="Play with Old Deck" />
       </div>
 
       </div>
@@ -51,4 +61,4 @@ const mapStateToProps = (state) => {
   }
 }
 
-export default connect(mapStateToProps, { fetchDecks }) (NewOldContainer);
+export default connect(mapStateToProps, { fetchDecks, createDeck }) (NewOldContainer);

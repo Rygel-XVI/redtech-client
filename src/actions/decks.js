@@ -8,23 +8,22 @@ export const fetchDecks = () => {
   }
 }
 
-// export const createRecipe = (recipe) => {
-//   let data = {
-//     method: 'POST',
-//     headers: {
-//       'Accept': 'application/json',
-//       'Content-Type': 'application/json',
-//     },
-//     body: JSON.stringify({ recipe })
-//   }
-//
-//   return dispatch => {
-//     fetch(baseUrl, data)
-//     .then(resp => resp.json())
-//     .then(recipe => dispatch({ type: 'ADD_RECIPE', recipe }))
-//     .catch(err => console.log(err))
-//   }
-// }
+export const createDeck = () => {
+  let data = {
+    method: 'POST',
+    headers: {
+      'Accept': 'application/json',
+      'Content-Type': 'application/json',
+    },
+  }
+
+  return dispatch => {
+    fetch(baseUrl, data)
+    .then(resp => resp.json())
+    .then(deck => dispatch({ type: 'ADD_DECK', deck }))
+    .catch(err => console.log(err))
+  }
+}
 //
 // export const updateRecipe = (recipe) => {
 //   let data = {
