@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux'
 import NewDeck from '../components/NewDeck'
 import OldDeck from '../components/OldDeck'
+import {fetchDecks} from '../actions/decks'
 
 class NewOldContainer extends Component {
 
@@ -12,20 +13,38 @@ class NewOldContainer extends Component {
       decks: []
     }
 
-    this.handleSubmit = this.handleSubmit.bind(this)
+    this.handleClick = this.handleClick.bind(this)
+  }
+
+  handleClick(event){
+    event.preventDefault()
+     // this.props.fetchDecks()
   }
 
   componentDidMount(){
+    //dispatch to fetch old decks if any exist
+    this.props.fetchDecks()
+
     console.log('i mounted')
   }
+
   render() {
     return (
       <div>
-      <NewDeck handleSubmit={this.handleSubmit} />
-      <OldDeck handleSubmit={this.handleSubmit} />
+      <h1>Welcome</h1>
+      <h3>  to almost  </h3>
+      <h2> Texas Hold'em </h2>
+      <br />
+      <h4> Would you rather play with a new deck or an old deck? </h4>
+
+      <div>
+        <NewDeck handleClick={this.handleClick} />
+        <OldDeck handleClick={this.handleClick} />
+      </div>
+
       </div>
     )
   }
 }
 
-export default NewOldContainer
+export default connect(null, { fetchDecks }) (NewOldContainer);
