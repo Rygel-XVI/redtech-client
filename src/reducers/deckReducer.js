@@ -2,7 +2,7 @@ export default function deckReducer( state={ decks:[] },action) {
 
   switch(action.type) {
     case "SET_DECKS":
-      return { ...state, decks: action.deck }
+      return { ...state, decks: action.decks }
     case "ADD_DECK":
       return { ...state, decks: [...state.decks, action.deck] }
     case "UPDATE_DECK":

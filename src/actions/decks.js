@@ -3,10 +3,7 @@ const baseUrl = 'http://localhost:3000/api/deck'
 export const fetchDecks = () => {
   return dispatch => {
     fetch(baseUrl)
-    .then((resp) => {
-      console.log("here");
-      resp.json()
-    })
+    .then(resp => resp.json())
     .then(decks => dispatch({ type: 'SET_DECKS', decks }))
   }
 }

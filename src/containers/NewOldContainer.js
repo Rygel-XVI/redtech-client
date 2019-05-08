@@ -24,8 +24,6 @@ class NewOldContainer extends Component {
   componentDidMount(){
     //dispatch to fetch old decks if any exist
     this.props.fetchDecks()
-
-    console.log('i mounted')
   }
 
   render() {
@@ -47,4 +45,10 @@ class NewOldContainer extends Component {
   }
 }
 
-export default connect(null, { fetchDecks }) (NewOldContainer);
+const mapStateToProps = (state) => {
+  return {
+    decks: state.decks
+  }
+}
+
+export default connect(mapStateToProps, { fetchDecks }) (NewOldContainer);
