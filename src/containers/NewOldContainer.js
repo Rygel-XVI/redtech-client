@@ -11,7 +11,8 @@ class NewOldContainer extends Component {
     super(props)
 
     this.state = {
-      decks: []
+      decks: [],
+      useDeckId: null
     }
 
     this.handleClick = this.handleClick.bind(this)
