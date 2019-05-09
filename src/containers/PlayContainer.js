@@ -8,9 +8,12 @@ import Card from '../components/Card'
 class PlayContainer extends Component {
   constructor(props){
     super(props)
-
     this.state = {
-
+      card1: null,
+      card2: null,
+      card3: null,
+      card4: null,
+      card5: null
     }
 
     this.handleClick = this.handleClick.bind(this)
@@ -20,24 +23,17 @@ class PlayContainer extends Component {
 
   }
 
-  componentDidMount() {
-    this.setState({
-      deck: this.props.deck,
-      card1: null,
-      card2: null,
-      card3: null,
-      card4: null,
-      card5: null
-    })
-  }
-
   render() {
     return (
       <div>
       <Card handleClick={this.handleClick} card={this.state.card1}/>
+      <br />
       <Card handleClick={this.handleClick} card={this.state.card2}/>
+      <br />
       <Card handleClick={this.handleClick} card={this.state.card3}/>
+      <br />
       <Card handleClick={this.handleClick} card={this.state.card4}/>
+      <br />
       <Card handleClick={this.handleClick} card={this.state.card5}/>
       </div>
     )
@@ -47,7 +43,8 @@ class PlayContainer extends Component {
 
 const mapStateToProps = (state) => {
   return {
-    deck: state.decks.filter(deck => deck.id === state.useDeckId)[0]
+    deck: state.decks.filter(deck => deck.id === state.useDeckId)[0],
+    decks: state.decks
   }
 }
 

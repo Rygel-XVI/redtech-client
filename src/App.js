@@ -24,13 +24,16 @@ class App extends Component {
           <React.Fragment>
           <Switch>
              <Route exact path="/" render={(props) =>  <NewOldContainer
-                                                         decks={this.props.decks} 
+                                                         decks={this.props.decks}
                                                          useDeckId={this.props.useDeckId}
                                                          deckChosen={this.props.deckChosen}
                                                          createDeck={this.props.createDeck}
                                                          setDeckId={this.props.setDeckId}/>
 } />
-             <Route path="/pick5/:useDeckId/play" component={PlayContainer}/>} />
+             <Route path="/pick5/:useDeckId/play" render={(props) => <PlayContainer
+                                                          decks={this.props.decks}
+                                                          useDeckId={this.props.useDeckId}/>
+                                                        } />
            </Switch>
           </React.Fragment>
         </Router>
