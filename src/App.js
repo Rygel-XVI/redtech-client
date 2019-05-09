@@ -1,9 +1,12 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux'
+import { BrowserRouter as Router, Route, Switch } from 'react-router-dom'
 import './App.css';
 
 import NewOldContainer from './containers/NewOldContainer'
-import {fetchDecks} from './actions/decks'
+import PlayContainer from './containers/PlayContainer'
+
+import {fetchDecks, createDeck} from './actions/decks'
 
 
 class App extends Component {
@@ -15,7 +18,17 @@ class App extends Component {
   render() {
     return (
       <div className="App">
-      <NewOldContainer decks={this.props.decks}/>
+
+        <Router>
+
+          <NewOldContainer decks={this.props.decks} useDeckId={this.props.useDeckId} deckChosen={this.props.deckChosen} createDeck={this.props.createDeck} />
+
+          <React.Fragment>
+          <Switch>
+            <Route path="/pick5/:useDeckId/play" component={PlayContainer}/>} />
+           </Switch>
+          </React.Fragment>
+        </Router>
       </div>
     );
   }
@@ -24,7 +37,9 @@ class App extends Component {
 const mapStateToProps = (state) => {
   return {
     decks: state.decks,
+    useDeckId: state.useDeckId || -1,
+    deckChosen: state.useDeckId > -1 ? true : false
   }
 }
 
-export default connect(mapStateToProps, { fetchDecks }) (App);
+export default connect(mapStateToProps, { fetchDecks, createDeck }) (App);
