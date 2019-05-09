@@ -28,6 +28,11 @@ export const createDeck = () => {
 export const setDeckId = (deck) => {
   return {type: "SET_DECK_ID", deck }
 }
+
+export const fetchDeck = (deck) =>{
+  return {type: "FETCH_DECK", deck}
+}
+
 //
 // export const updateRecipe = (recipe) => {
 //   let data = {
