@@ -29,8 +29,8 @@ export const setDeckId = (deck) => {
   return {type: "SET_DECK_ID", deck }
 }
 
-export const fetchDeck = (deck) =>{
-  return {type: "FETCH_DECK", deck}
+export const drawCard = (deck, loc) =>{
+  return {type: "DRAW_CARD", deck, loc}
 }
 
 //

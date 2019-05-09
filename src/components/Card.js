@@ -14,7 +14,7 @@ class Card extends Component {
   render() {
     return (
       <div>
-        <button onClick={this.props.handleClick}>
+        <button onClick={this.props.handleClick} name={this.props.name}>
           {this.renderCard()}
          </button>
          <br />

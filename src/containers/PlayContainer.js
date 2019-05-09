@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux'
-import {fetchDeck} from '../actions/decks'
+import {drawCard} from '../actions/decks'
 
 
 import Card from '../components/Card'
@@ -19,22 +19,23 @@ class PlayContainer extends Component {
     this.handleClick = this.handleClick.bind(this)
   }
 
-  handleClick() {
-
+  handleClick(event) {
+    let arrayLoc = parseInt(event.target.name)
+    this.props.drawCard(this.props.deck, arrayLoc)
   }
 
   render() {
     return (
       <div>
-      <Card handleClick={this.handleClick} card={this.state.card1}/>
+      <Card handleClick={this.handleClick} card={this.props.cards[0]} name="0"/>
       <br />
-      <Card handleClick={this.handleClick} card={this.state.card2}/>
+      <Card handleClick={this.handleClick} card={this.props.cards[1]} name="1"/>
       <br />
-      <Card handleClick={this.handleClick} card={this.state.card3}/>
+      <Card handleClick={this.handleClick} card={this.props.cards[2]} name="2"/>
       <br />
-      <Card handleClick={this.handleClick} card={this.state.card4}/>
+      <Card handleClick={this.handleClick} card={this.props.cards[3]} name="3"/>
       <br />
-      <Card handleClick={this.handleClick} card={this.state.card5}/>
+      <Card handleClick={this.handleClick} card={this.props.cards[4]} name="4"/>
       </div>
     )
   }
@@ -44,11 +45,12 @@ class PlayContainer extends Component {
 const mapStateToProps = (state) => {
   return {
     deck: state.decks.filter(deck => deck.id === state.useDeckId)[0],
-    decks: state.decks
+    decks: state.decks,
+    cards: state.cards
   }
 }
 
-export default connect(mapStateToProps, { fetchDeck }) (PlayContainer);
+export default connect(mapStateToProps, { drawCard }) (PlayContainer);
 
 // on mount component should fetch the deck based on the deck id passed into the params on the frontend
 // should render 5 cards
