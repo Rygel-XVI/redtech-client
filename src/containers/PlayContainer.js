@@ -1,10 +1,14 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux'
 
+import Card from '../components/Card'
+
 class PlayContainer extends Component {
   constructor(props){
     super(props)
   }
+
+  
 
 
   componentDidMount() {

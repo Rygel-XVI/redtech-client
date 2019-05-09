@@ -27,7 +27,7 @@ class NewOldContainer extends Component {
 
   renderContinueLink() {
     if (this.props.deckChosen === true) {
-      return <Continue deck={this.state.useDeckId} />
+      return <Continue useDeckId={this.props.useDeckId} />
     }
   }
 
