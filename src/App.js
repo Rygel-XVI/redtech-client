@@ -1,14 +1,15 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux'
-import logo from './logo.svg';
 import './App.css';
 
 import NewOldContainer from './containers/NewOldContainer'
+import {fetchDecks} from './actions/decks'
+
 
 class App extends Component {
 
   componentDidMount() {
-    // fetches all old decks
+      this.props.fetchDecks()
   }
 
   render() {
@@ -19,4 +20,11 @@ class App extends Component {
     );
   }
 }
-export default App;
+
+const mapStateToProps = (state) => {
+  return {
+    decks: state.decks,
+  }
+}
+
+export default connect(mapStateToProps, { fetchDecks }) (App);

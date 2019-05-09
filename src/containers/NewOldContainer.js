@@ -3,7 +3,7 @@ import { connect } from 'react-redux'
 import NewDeck from '../components/NewDeck'
 import OldDeck from '../components/OldDeck'
 import ChooseDeckButton from '../components/ChooseDeckButton'
-import {fetchDecks, createDeck} from '../actions/decks'
+import {createDeck} from '../actions/decks'
 
 class NewOldContainer extends Component {
 
@@ -20,7 +20,6 @@ class NewOldContainer extends Component {
 
   handleClick(event){
     event.preventDefault()
-    debugger;
     if ( event.target.name === "new" ){
       this.props.createDeck()
       // fetch to create new deck
@@ -34,7 +33,6 @@ class NewOldContainer extends Component {
 // elevate this to <App />
   componentDidMount(){
     //dispatch to fetch old decks if any exist
-    this.props.fetchDecks()
   }
 
   render() {
@@ -56,10 +54,4 @@ class NewOldContainer extends Component {
   }
 }
 
-const mapStateToProps = (state) => {
-  return {
-    decks: state.decks
-  }
-}
-
-export default connect(mapStateToProps, { fetchDecks, createDeck }) (NewOldContainer);
+export default connect(null, { createDeck }) (NewOldContainer);
