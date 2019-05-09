@@ -16,6 +16,9 @@ export default function deckReducer( state={ decks:[], deck: null, cards: [null,
       updatedDecks = state.decks.filter(deck => deck.id !== action.deck.id)
       return {...state, decks: updatedDecks}
     case "DRAW_CARD":
+
+    // maybe move some of this logic
+    
     // find all cards currently in the deck
       let possibleCards = action.deck.cards.filter(c => c.location === "deck")
     // pick a card in the deck

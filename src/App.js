@@ -3,7 +3,7 @@ import { connect } from 'react-redux'
 import { BrowserRouter as Router, Route, Switch } from 'react-router-dom'
 import './App.css';
 
-import NewOldContainer from './containers/NewOldContainer'
+import SelectDeckContainer from './containers/SelectDeckContainer'
 import PlayContainer from './containers/PlayContainer'
 
 import {fetchDecks, createDeck, setDeckId, deleteDeck} from './actions/decks'
@@ -24,7 +24,7 @@ class App extends Component {
 
           <React.Fragment>
           <Switch>
-             <Route exact path="/" render={(props) =>  <NewOldContainer
+             <Route exact path="/" render={(props) =>  <SelectDeckContainer
                                                          decks={this.props.decks}
                                                          useDeckId={this.props.useDeckId}
                                                          deckChosen={this.props.deckChosen}

@@ -6,7 +6,7 @@ import Continue from '../components/Continue'
 import Deck from '../components/Deck'
 
 
-class NewOldContainer extends Component {
+class SelectDeckContainer extends Component {
 
   constructor(props) {
     super(props)
@@ -72,6 +72,6 @@ class NewOldContainer extends Component {
   }
 }
 
-export default NewOldContainer
+export default SelectDeckContainer
 
 // export default connect(mapStateToProps, { createDeck }) (NewOldContainer);
