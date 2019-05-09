@@ -11,11 +11,11 @@ class NewOldContainer extends Component {
   constructor(props) {
     super(props)
 
-    this.state = {
-      decks: [],
-      useDeckId: null,
-      choiceMade: false
-    }
+    // this.state = {
+    //   decks: [],
+    //   useDeckId: null,
+    //   choiceMade: false
+    // }
 
     this.handleClick = this.handleClick.bind(this)
     this.chooseOldDeck = this.chooseOldDeck.bind(this)
@@ -23,7 +23,7 @@ class NewOldContainer extends Component {
   }
 
   renderDecks() {
-    return this.state.decks.map(deck => {
+    return this.props.decks.map(deck => {
       return <Deck deck={deck} key={deck.id} chooseOldDeck={this.chooseOldDeck} handleDelete={this.handleDelete}/>
     })
   }
@@ -35,7 +35,6 @@ class NewOldContainer extends Component {
 
   handleDelete(event) {
     event.preventDefault()
-    debugger;
     this.props.deleteDeck(parseInt(event.target.name))
   }
 
@@ -43,11 +42,12 @@ class NewOldContainer extends Component {
     event.preventDefault()
     if ( event.target.name === "new" ){
       this.props.createDeck()
-    } else {
-      this.setState ({
-        decks: this.props.decks
-      })
     }
+    // else {
+    //   this.setState ({
+    //     decks: this.props.decks
+    //   })
+    // }
   }
 
   renderContinueLink() {

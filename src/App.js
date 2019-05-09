@@ -12,6 +12,7 @@ import {fetchDecks, createDeck, setDeckId, deleteDeck} from './actions/decks'
 class App extends Component {
 
   componentDidMount() {
+    console.log('app mounted')
       this.props.fetchDecks()
   }
 
