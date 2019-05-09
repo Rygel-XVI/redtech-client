@@ -6,7 +6,7 @@ import './App.css';
 import NewOldContainer from './containers/NewOldContainer'
 import PlayContainer from './containers/PlayContainer'
 
-import {fetchDecks, createDeck} from './actions/decks'
+import {fetchDecks, createDeck, setDeckId} from './actions/decks'
 
 
 class App extends Component {
@@ -23,7 +23,12 @@ class App extends Component {
 
           <React.Fragment>
           <Switch>
-             <Route exact path="/" render={(props) =>  <NewOldContainer decks={this.props.decks} useDeckId={this.props.useDeckId} deckChosen={this.props.deckChosen} createDeck={this.props.createDeck} />
+             <Route exact path="/" render={(props) =>  <NewOldContainer
+                                                         decks={this.props.decks} 
+                                                         useDeckId={this.props.useDeckId}
+                                                         deckChosen={this.props.deckChosen}
+                                                         createDeck={this.props.createDeck}
+                                                         setDeckId={this.props.setDeckId}/>
 } />
              <Route path="/pick5/:useDeckId/play" component={PlayContainer}/>} />
            </Switch>
@@ -42,4 +47,4 @@ const mapStateToProps = (state) => {
   }
 }
 
-export default connect(mapStateToProps, { fetchDecks, createDeck }) (App);
+export default connect(mapStateToProps, { fetchDecks, createDeck, setDeckId }) (App);

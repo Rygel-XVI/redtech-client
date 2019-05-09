@@ -24,6 +24,10 @@ export const createDeck = () => {
     .catch(err => console.log(err))
   }
 }
+
+export const setDeckId = (deck) => {
+  return {type: "SET_DECK_ID", deck }
+}
 //
 // export const updateRecipe = (recipe) => {
 //   let data = {

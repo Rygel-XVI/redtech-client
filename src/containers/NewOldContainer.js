@@ -3,6 +3,8 @@ import { connect } from 'react-redux'
 
 import ChooseDeckButton from '../components/ChooseDeckButton'
 import Continue from '../components/Continue'
+import Deck from '../components/Deck'
+
 
 class NewOldContainer extends Component {
 
@@ -16,12 +18,28 @@ class NewOldContainer extends Component {
     }
 
     this.handleClick = this.handleClick.bind(this)
+    this.chooseOldDeck = this.chooseOldDeck.bind(this)
+  }
+
+  renderDecks() {
+    return this.state.decks.map(deck => {
+      return <Deck deck={deck} key={deck.id} chooseOldDeck={this.chooseOldDeck}/>
+    })
+  }
+
+  chooseOldDeck(event) {
+    event.preventDefault()
+    this.props.setDeckId(parseInt(event.target.name))
   }
 
   handleClick(event){
     event.preventDefault()
     if ( event.target.name === "new" ){
       this.props.createDeck()
+    } else {
+      this.setState ({
+        decks: this.props.decks
+      })
     }
   }
 
@@ -43,6 +61,7 @@ class NewOldContainer extends Component {
         <div>
           <ChooseDeckButton handleClick={this.handleClick} name="new" text="Play with New Deck" />
           <ChooseDeckButton handleClick={this.handleClick} name="old" text="Play with Old Deck" />
+          {this.renderDecks()}
         </div>
 
         <div>
