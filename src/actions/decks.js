@@ -34,25 +34,26 @@ export const drawCard = (deck, loc) =>{
   return {type: "DRAW_CARD", deck, loc}
 }
 
-//
-// export const updateRecipe = (recipe) => {
-//   let data = {
-//     method: 'PATCH',
-//     headers: {
-//       'Accept': 'application/json',
-//       'Content-Type': 'application/json',
-//     },
-//     body: JSON.stringify({ recipe })
-//   }
-//
-//   return dispatch => {
-//     fetch(baseUrl + "/" + recipe.id, data)
-//     .then(resp => resp.json())
-//     .then((recipe) => dispatch({ type: 'UPDATE_RECIPE', recipe }))
-//     .catch(err => console.log(err))
-//   }
-// }
-//
+
+export const updateDeck = (deck) => {
+  debugger;
+  let data = {
+    method: 'PATCH',
+    headers: {
+      'Accept': 'application/json',
+      'Content-Type': 'application/json',
+    },
+    body: JSON.stringify({ deck })
+  }
+
+  return dispatch => {
+    fetch(baseUrl + "/" + deck, data)
+    .then(resp => resp.json())
+    .then((recipe) => dispatch({ type: 'UPDATE_DECK', deck }))
+    .catch(err => console.log(err))
+  }
+}
+
 export const deleteDeck = (deck) => {
   let data = {
     method: 'DELETE',
@@ -63,7 +64,7 @@ export const deleteDeck = (deck) => {
   }
 
   return dispatch => {
-    fetch(baseUrl + "/" + deck, data)
+    fetch(baseUrl + "/" + deck.id, data)
     .then(resp => resp.json())
     .then((deck) => dispatch({ type: 'DELETE_DECK', deck }))
     .catch(err => console.log(err))

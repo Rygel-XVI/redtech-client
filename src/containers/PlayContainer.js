@@ -1,9 +1,10 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux'
-import {drawCard} from '../actions/decks'
+import {drawCard, updateDeck} from '../actions/decks'
 
 
 import Card from '../components/Card'
+import SaveButton from '../components/SaveButton'
 
 class PlayContainer extends Component {
   constructor(props){
@@ -13,15 +14,19 @@ class PlayContainer extends Component {
       card2: null,
       card3: null,
       card4: null,
-      card5: null
+      card5: null,
     }
 
     this.handleClick = this.handleClick.bind(this)
+    this.saveGame = this.saveGame.bind(this)
+  }
+
+  saveGame(event) {
+    let deck = this.props.decks.filter(d => d.id === this.props.useDeckId)[0]
+    this.props.updateDeck(deck)
   }
 
   handleClick(event) {
-    debugger;
-    console.log(parseInt(event.target.name))
     let arrayLoc = parseInt(event.target.name)
     if (this.props.cards[arrayLoc] === null) {
       this.props.drawCard(this.props.deck, arrayLoc)
@@ -40,6 +45,10 @@ class PlayContainer extends Component {
       <Card handleClick={this.handleClick} card={this.props.cards[3]} name="3"/>
       <br />
       <Card handleClick={this.handleClick} card={this.props.cards[4]} name="4"/>
+      <br />
+        <div className="save">
+        <SaveButton saveGame={this.saveGame}/>
+        </div>
       </div>
     )
   }
@@ -54,4 +63,4 @@ const mapStateToProps = (state) => {
   }
 }
 
-export default connect(mapStateToProps, { drawCard }) (PlayContainer)
+export default connect(mapStateToProps, { drawCard, updateDeck }) (PlayContainer)

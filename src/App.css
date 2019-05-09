@@ -44,3 +44,10 @@
   width: 150px;
   background-color: #5999c1;
 }
+
+.save {
+  display: flex;
+  flex-direction: row;
+  align-self: flex-end;
+
+}
