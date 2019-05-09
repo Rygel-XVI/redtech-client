@@ -21,12 +21,14 @@ class PlayContainer extends Component {
 
   handleClick(event) {
     let arrayLoc = parseInt(event.target.name)
-    this.props.drawCard(this.props.deck, arrayLoc)
+    if (this.props.cards[arrayLoc] === null) {
+      this.props.drawCard(this.props.deck, arrayLoc)
+    }
   }
 
   render() {
     return (
-      <div>
+      <div className="card-container">
       <Card handleClick={this.handleClick} card={this.props.cards[0]} name="0"/>
       <br />
       <Card handleClick={this.handleClick} card={this.props.cards[1]} name="1"/>
@@ -50,7 +52,4 @@ const mapStateToProps = (state) => {
   }
 }
 
-export default connect(mapStateToProps, { drawCard }) (PlayContainer);
-
-// on mount component should fetch the deck based on the deck id passed into the params on the frontend
-// should render 5 cards
+export default connect(mapStateToProps, { drawCard }) (PlayContainer)

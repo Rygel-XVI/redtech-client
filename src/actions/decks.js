@@ -30,6 +30,7 @@ export const setDeckId = (deck) => {
 }
 
 export const drawCard = (deck, loc) =>{
+  console.log("action")
   return {type: "DRAW_CARD", deck, loc}
 }
 
@@ -52,19 +53,19 @@ export const drawCard = (deck, loc) =>{
 //   }
 // }
 //
-// export const deleteRecipe = (id) => {
-//   let data = {
-//     method: 'DELETE',
-//     headers: {
-//       'Accept': 'application/json',
-//       'Content-Type': 'application/json',
-//     }
-//   }
-//
-//   return dispatch => {
-//     fetch(baseUrl + "/" + id, data)
-//     .then(resp => resp.json())
-//     .then((recipe) => dispatch({ type: 'DELETE_RECIPE', recipe }))
-//     .catch(err => console.log(err))
-//   }
-// }
+export const deleteDeck = (deck) => {
+  let data = {
+    method: 'DELETE',
+    headers: {
+      'Accept': 'application/json',
+      'Content-Type': 'application/json',
+    }
+  }
+
+  return dispatch => {
+    fetch(baseUrl + "/" + deck, data)
+    .then(resp => resp.json())
+    .then((deck) => dispatch({ type: 'DELETE_DECK', deck }))
+    .catch(err => console.log(err))
+  }
+}

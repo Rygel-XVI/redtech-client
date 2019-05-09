@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+// import logo from '../images/JPEG/2H.jpg'
 
 class Card extends Component {
 
@@ -9,14 +10,19 @@ class Card extends Component {
     } else {
       return "I'm a null card!"
     }
+    // if (this.props.card !== null) {
+    //   return < img src={require(`${this.props.card.image_location}`)} name={this.props.name} />
+    // } else {
+    //   return  <button onClick={this.props.handleClick} name={this.props.name}>Pick a Card</button>
+    // }
   }
 
   render() {
     return (
-      <div>
-        <button onClick={this.props.handleClick} name={this.props.name}>
-          {this.renderCard()}
-         </button>
+      <div className='card'>
+      <button onClick={this.props.handleClick} name={this.props.name}>
+        {this.renderCard()}
+      </button>
          <br />
       </div>
     )
@@ -24,3 +30,7 @@ class Card extends Component {
 
 }
 export default Card
+
+
+// had trouble loading local file as card image reverted to displaying the card code
+// add small components to position in the card component one for the top right and bottom left for suit and the other for the center for the number

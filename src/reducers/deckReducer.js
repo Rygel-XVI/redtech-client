@@ -13,7 +13,8 @@ export default function deckReducer( state={ decks:[], deck: null, cards: [null,
       updatedDecks.push(action.deck)
       return { ...state, deck: updatedDecks }
     case "DELETE_DECK":
-      return {...state, decks: state.decks.filter(deck => deck.id !== action.deck.id)}
+      // debugger;
+      return {...state, decks: state.decks.filter(deck => deck !== action.deck)}
     case "DRAW_CARD":
     // find all cards currently in the deck
       let possibleCards = action.deck.cards.filter(c => c.location === "deck")
@@ -30,7 +31,6 @@ export default function deckReducer( state={ decks:[], deck: null, cards: [null,
     // push updated deck onto decks array
       updatedDecks.push(action.deck)
       state.cards[action.loc] = pickedCard
-      debugger;
       return { ...state, decks: updatedDecks, cards: state.cards}
     default:
       return state

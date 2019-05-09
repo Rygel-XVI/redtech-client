@@ -6,7 +6,7 @@ import './App.css';
 import NewOldContainer from './containers/NewOldContainer'
 import PlayContainer from './containers/PlayContainer'
 
-import {fetchDecks, createDeck, setDeckId} from './actions/decks'
+import {fetchDecks, createDeck, setDeckId, deleteDeck} from './actions/decks'
 
 
 class App extends Component {
@@ -28,7 +28,8 @@ class App extends Component {
                                                          useDeckId={this.props.useDeckId}
                                                          deckChosen={this.props.deckChosen}
                                                          createDeck={this.props.createDeck}
-                                                         setDeckId={this.props.setDeckId}/>
+                                                         setDeckId={this.props.setDeckId}
+                                                         deleteDeck={this.props.deleteDeck}/>
 } />
              <Route path="/pick5/:useDeckId/play" render={(props) => <PlayContainer
                                                           decks={this.props.decks}
@@ -50,4 +51,4 @@ const mapStateToProps = (state) => {
   }
 }
 
-export default connect(mapStateToProps, { fetchDecks, createDeck, setDeckId }) (App);
+export default connect(mapStateToProps, { fetchDecks, createDeck, setDeckId, deleteDeck }) (App);

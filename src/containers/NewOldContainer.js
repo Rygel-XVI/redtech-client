@@ -19,17 +19,24 @@ class NewOldContainer extends Component {
 
     this.handleClick = this.handleClick.bind(this)
     this.chooseOldDeck = this.chooseOldDeck.bind(this)
+    this.handleDelete = this.handleDelete.bind(this)
   }
 
   renderDecks() {
     return this.state.decks.map(deck => {
-      return <Deck deck={deck} key={deck.id} chooseOldDeck={this.chooseOldDeck}/>
+      return <Deck deck={deck} key={deck.id} chooseOldDeck={this.chooseOldDeck} handleDelete={this.handleDelete}/>
     })
   }
 
   chooseOldDeck(event) {
     event.preventDefault()
     this.props.setDeckId(parseInt(event.target.name))
+  }
+
+  handleDelete(event) {
+    event.preventDefault()
+    debugger;
+    this.props.deleteDeck(parseInt(event.target.name))
   }
 
   handleClick(event){
