@@ -1,8 +1,14 @@
-import React from 'react'
+import React, { Component } from 'react';
 
-const Card = ({ handleClick, text, name }) => (
-  <div>
-    <button onClick={handleClick} name={name} >{text}</button>
-  </div>
-)
+class Card extends Component {
+
+  render() {
+    return (
+      <div>
+        I'm a card!
+      </div>
+    )
+  }
+
+}
 export default Card

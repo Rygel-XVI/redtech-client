@@ -8,19 +8,37 @@ import Card from '../components/Card'
 class PlayContainer extends Component {
   constructor(props){
     super(props)
+
+    this.state = {
+
+    }
+
+    this.handleClick = this.handleClick.bind(this)
   }
 
-  // renderFiveCards() {
-  //   return this.props.map(deck => {
-  //     return <Deck deck={deck} key={deck.id} chooseOldDeck={this.chooseOldDeck}/>
-  //   })
-  // }
+  handleClick() {
 
+  }
+
+  componentDidMount() {
+    this.setState({
+      deck: this.props.deck,
+      card1: null,
+      card2: null,
+      card3: null,
+      card4: null,
+      card5: null
+    })
+  }
 
   render() {
     return (
       <div>
-      {!!this.props.deck ? "true" : "false"}
+      <Card handleClick={this.handleClick} card={this.state.card1}/>
+      <Card handleClick={this.handleClick} card={this.state.card2}/>
+      <Card handleClick={this.handleClick} card={this.state.card3}/>
+      <Card handleClick={this.handleClick} card={this.state.card4}/>
+      <Card handleClick={this.handleClick} card={this.state.card5}/>
       </div>
     )
   }
