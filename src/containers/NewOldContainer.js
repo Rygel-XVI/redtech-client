@@ -11,7 +11,8 @@ class NewOldContainer extends Component {
 
     this.state = {
       decks: [],
-      useDeckId: null
+      useDeckId: null,
+      choiceMade: false
     }
 
     this.handleClick = this.handleClick.bind(this)
@@ -21,10 +22,18 @@ class NewOldContainer extends Component {
     event.preventDefault()
     if ( event.target.name === "new" ){
       this.props.createDeck()
-    } else {
-      // go to page with all the available Decks
     }
+    this.setState ({
+      choiceMade: true
+    })
   }
+
+//   this.setState({
+//       ingredient: {
+//         ...this.state.ingredient,
+//         [event.target.name]: event.target.value
+//       }
+// })
 
 
 // elevate this to <App />
