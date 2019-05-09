@@ -33,4 +33,4 @@ export default Card
 
 
 // had trouble loading local file as card image reverted to displaying the card code
-// add small components to position in the card component one for the top right and bottom left for suit and the other for the center for the number
+// add small components to position in the card component one for the top right and bottom left for suit and the other

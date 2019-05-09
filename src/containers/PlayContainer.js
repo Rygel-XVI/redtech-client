@@ -20,6 +20,8 @@ class PlayContainer extends Component {
   }
 
   handleClick(event) {
+    debugger;
+    console.log(parseInt(event.target.name))
     let arrayLoc = parseInt(event.target.name)
     if (this.props.cards[arrayLoc] === null) {
       this.props.drawCard(this.props.deck, arrayLoc)
