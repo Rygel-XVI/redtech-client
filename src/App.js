@@ -15,7 +15,7 @@ class App extends Component {
   render() {
     return (
       <div className="App">
-      <NewOldContainer />
+      <NewOldContainer decks={this.props.decks}/>
       </div>
     );
   }
