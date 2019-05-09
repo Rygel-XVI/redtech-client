@@ -1,7 +1,6 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux'
-import NewDeck from '../components/NewDeck'
-import OldDeck from '../components/OldDeck'
+
 import ChooseDeckButton from '../components/ChooseDeckButton'
 import {createDeck} from '../actions/decks'
 
@@ -22,8 +21,6 @@ class NewOldContainer extends Component {
     event.preventDefault()
     if ( event.target.name === "new" ){
       this.props.createDeck()
-      // fetch to create new deck
-      // render game with the new deck
     } else {
       // go to page with all the available Decks
     }
