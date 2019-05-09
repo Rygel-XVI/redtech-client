@@ -6,7 +6,6 @@ export default function deckReducer( state={ decks:[] },action) {
     case "ADD_DECK":
       return { ...state, useDeckId: action.deck.id, decks: [...state.decks, action.deck] }
     case "SET_DECK_ID":
-    debugger;
       return {...state, useDeckId: action.deck}
     case "UPDATE_DECK":
       let updatedDecks = state.decks.filter(deck => deck.id !== action.deck.id)

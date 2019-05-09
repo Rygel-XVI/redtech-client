@@ -3,10 +3,6 @@ import { NavLink, Route, Router } from 'react-router-dom';
 
 class Continue extends Component {
 
-  componentDidMount(){
-    debugger;
-  }
-
   render() {
 
     return (

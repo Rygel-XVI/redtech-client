@@ -57,15 +57,18 @@ class NewOldContainer extends Component {
         <h2> Texas Hold'em </h2>
         <br />
         <h4> Would you rather play with a new deck or an old deck? </h4>
-
-        <div>
-          <ChooseDeckButton handleClick={this.handleClick} name="new" text="Play with New Deck" />
-          <ChooseDeckButton handleClick={this.handleClick} name="old" text="Play with Old Deck" />
-          {this.renderDecks()}
-        </div>
+        <br />
 
         <div>
           {this.renderContinueLink()}
+        </div>
+
+        <div>
+          <ChooseDeckButton handleClick={this.handleClick} name="new" text="Play with New Deck" />
+          <br />
+          <ChooseDeckButton handleClick={this.handleClick} name="old" text="Play with Old Deck" />
+          <br />
+          {this.renderDecks()}
         </div>
 
       </div>
