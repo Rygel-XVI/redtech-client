@@ -47,7 +47,7 @@ class NewOldContainer extends Component {
 
   render() {
     return (
-      <div>
+      <div className='select-container'>
         <h1>Welcome</h1>
         <h3>  to almost  </h3>
         <h2> Texas Hold'em </h2>
