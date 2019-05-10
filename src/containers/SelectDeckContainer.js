@@ -11,15 +11,21 @@ class SelectDeckContainer extends Component {
   constructor(props) {
     super(props)
 
+    this.state = {
+      showDecks: false
+    }
+
     this.handleClick = this.handleClick.bind(this)
     this.chooseOldDeck = this.chooseOldDeck.bind(this)
     this.handleDelete = this.handleDelete.bind(this)
   }
 
   renderDecks() {
-    return this.props.decks.map(deck => {
-      return <Deck deck={deck} key={deck.id} chooseOldDeck={this.chooseOldDeck} handleDelete={this.handleDelete}/>
-    })
+    if (this.state.showDecks){
+      return this.props.decks.map(deck => {
+        return <Deck deck={deck} key={deck.id} chooseOldDeck={this.chooseOldDeck} handleDelete={this.handleDelete}/>
+      })
+    }
   }
 
   chooseOldDeck(event) {
@@ -36,6 +42,10 @@ class SelectDeckContainer extends Component {
     event.preventDefault()
     if ( event.target.name === "new" ){
       this.props.createDeck()
+    } else {
+      this.setState ({
+        showDecks: !this.state.showDecks
+      })
     }
   }
 
