@@ -69,7 +69,7 @@ export const updateDeck = (deck) => {
   }
 }
 
-export const deleteDeck = (deck) => {
+export const deleteDeck = (id) => {
   let data = {
     method: 'DELETE',
     headers: {
@@ -77,11 +77,10 @@ export const deleteDeck = (deck) => {
       'Content-Type': 'application/json',
     }
   }
-
   return dispatch => {
-    fetch(baseUrl + "/" + deck.id, data)
+    fetch(baseUrl + "/" + id, data)
     .then(resp => resp.json())
-    .then((deck) => dispatch({ type: 'DELETE_DECK', deck }))
+    .then((deck) => dispatch({ type: 'DELETE_DECK', id }))
     .catch(err => console.log(err))
   }
 }

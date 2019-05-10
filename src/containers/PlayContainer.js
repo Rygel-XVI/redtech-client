@@ -3,7 +3,6 @@ import { connect } from 'react-redux'
 import {setDeckId, updateDeck, drawCard} from '../actions/decks'
 
 import Card from '../components/Card'
-import NewGameButton from '../components/NewGameButton'
 
 class PlayContainer extends Component {
   constructor(props){

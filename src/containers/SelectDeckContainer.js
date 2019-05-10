@@ -4,6 +4,7 @@ import { connect } from 'react-redux'
 import ChooseDeckButton from '../components/ChooseDeckButton'
 import Continue from '../components/Continue'
 import Deck from '../components/Deck'
+import {setDeckId, deleteDeck} from '../actions/decks'
 
 
 class SelectDeckContainer extends Component {
@@ -38,6 +39,7 @@ class SelectDeckContainer extends Component {
 // handles deletion of decks
   handleDelete(event) {
     event.preventDefault()
+    console.log(event.target.name)
     this.props.deleteDeck(parseInt(event.target.name))
   }
 
@@ -58,6 +60,11 @@ class SelectDeckContainer extends Component {
     if (this.props.deckChosen === true) {
       return <Continue useDeckId={this.props.useDeckId} />
     }
+  }
+
+  componentDidMount() {
+    console.log("mounted")
+      this.props.setDeckId()
   }
 
   render() {
@@ -88,6 +95,6 @@ class SelectDeckContainer extends Component {
   }
 }
 
-export default SelectDeckContainer
+// export default SelectDeckContainer
 
-// export default connect(mapStateToProps, { createDeck }) (NewOldContainer);
+export default connect(null, { setDeckId, deleteDeck }) (SelectDeckContainer);
