@@ -1,6 +1,7 @@
 .App {
   display: flex;
   justify-content: center;
+  background-color: #819e97;
 }
 
 .select-container {
@@ -53,5 +54,5 @@
   width: 200px;
   padding: 1%;
   margin: 5%;
-  color: grey;
+  color: white;
 }

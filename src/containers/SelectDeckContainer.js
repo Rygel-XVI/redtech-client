@@ -95,6 +95,4 @@ class SelectDeckContainer extends Component {
   }
 }
 
-// export default SelectDeckContainer
-
 export default connect(null, { setDeckId, deleteDeck, createDeck }) (SelectDeckContainer);
