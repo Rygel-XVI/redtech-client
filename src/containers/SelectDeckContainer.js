@@ -67,6 +67,7 @@ class SelectDeckContainer extends Component {
 
         <div>
           {this.renderContinueLink()}
+          <br />
         </div>
 
         <div>

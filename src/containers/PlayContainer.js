@@ -50,8 +50,6 @@ class PlayContainer extends Component {
       <br />
       <Card handleClick={this.handleClick} card={this.props.cards[4]} name="4"/>
       <br />
-
-      <NewGameButton newGame={this.newGame} />
       </div>
     )
   }
