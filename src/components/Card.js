@@ -31,6 +31,6 @@ class Card extends Component {
 }
 export default Card
 
-
+//   <<<<<< possible environment issue? >>>>>>>>
 // had trouble loading local file as card image reverted to displaying the card code
-// add small components to position in the card component one for the top right and bottom left for suit and the other
+// add small components to position in the card component one for the top right and bottom left for suit and the other is alternative method but clunky

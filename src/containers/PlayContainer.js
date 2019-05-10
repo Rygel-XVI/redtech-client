@@ -25,6 +25,7 @@ class PlayContainer extends Component {
     this.props.setDeckId(-1)
   }
 
+// handles clicking of cards. in the future make thinner if possible
   handleClick(event) {
     let arrayLoc = parseInt(event.target.name)
     let cards

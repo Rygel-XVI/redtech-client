@@ -20,6 +20,7 @@ class SelectDeckContainer extends Component {
     this.handleDelete = this.handleDelete.bind(this)
   }
 
+// handles rendering of deck list
   renderDecks() {
     if (this.state.showDecks){
       return this.props.decks.map(deck => {
@@ -28,16 +29,19 @@ class SelectDeckContainer extends Component {
     }
   }
 
+// handles button for old deck
   chooseOldDeck(event) {
     event.preventDefault()
     this.props.setDeckId(parseInt(event.target.name))
   }
 
+// handles deletion of decks
   handleDelete(event) {
     event.preventDefault()
     this.props.deleteDeck(parseInt(event.target.name))
   }
 
+// handles clicking on either button for selecting new or old deck
   handleClick(event){
     event.preventDefault()
     if ( event.target.name === "new" ){
@@ -49,6 +53,7 @@ class SelectDeckContainer extends Component {
     }
   }
 
+// renders "start game" when a deck is chosen
   renderContinueLink() {
     if (this.props.deckChosen === true) {
       return <Continue useDeckId={this.props.useDeckId} />
