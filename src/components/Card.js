@@ -4,25 +4,28 @@ import React, { Component } from 'react';
 class Card extends Component {
 
   renderCard(){
-    if (this.props.card !== null) {
-      let cardString = this.props.card.suit + this.props.card.number
-      return cardString
-    } else {
-      return "I'm a null card!"
-    }
     // if (this.props.card !== null) {
-    //   return < img src={require(`${this.props.card.image_location}`)} name={this.props.name} />
+    //   let cardString = this.props.card.suit + this.props.card.number
+    //   return cardString
     // } else {
-    //   return  <button onClick={this.props.handleClick} name={this.props.name}>Pick a Card</button>
+    //   return "I'm a null card!"
     // }
+    if (this.props.card !== null) {
+      // debugger;
+      let cardImage = this.props.card.image_location
+      return < img src={require(`${cardImage}`)} name={this.props.name} className='card-image' />
+    } else {
+      return < img src={require(`../images/JPEG/blue_back.jpg`)} name={this.props.name} className='card-image' />
+      // return  <button onClick={this.props.handleClick} name={this.props.name}>Pick a Card</button>
+    }
   }
 
   render() {
     return (
       <div className='card'>
-      <button onClick={this.props.handleClick} name={this.props.name}>
-        {this.renderCard()}
-      </button>
+      {this.renderCard()}
+      <br />
+      <button onClick={this.props.handleClick} name={this.props.name}> Draw Card </button>
          <br />
       </div>
     )
@@ -31,6 +34,8 @@ class Card extends Component {
 }
 export default Card
 
-//   <<<<<< possible environment issue? >>>>>>>>
-// had trouble loading local file as card image reverted to displaying the card code
-// add small components to position in the card component one for the top right and bottom left for suit and the other is alternative method but clunky
+
+// this works standalone but still working on dynamically rendering it successfully
+// < img src={require(`../images/JPEG/2C.jpg`)} name={this.props.name} />
+
+// other options include requiring them all separately in an array and trying that

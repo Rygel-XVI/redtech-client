@@ -16,4 +16,6 @@ After starting the Rails server start React with npm start and hit enter when as
 
 ## Known Bugs
 
-  When choosing an old deck, you can currently delete it and then choose the deck that is no longer available. To be fixed by removing the button after clicking delete.
+Turning over a card currently does not work due to something with webpack. The path location is correct though.
+
+Have to rename the jpg files for aces (A) to 1, jacks (J to 11), queens (Q) to 12, kings (K) to 13 so routes are consistent.
