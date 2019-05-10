@@ -1,10 +1,9 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux'
-import {drawCard, updateDeck} from '../actions/decks'
-
+import {setDeckId, updateDeck} from '../actions/decks'
 
 import Card from '../components/Card'
-import SaveButton from '../components/SaveButton'
+import NewGameButton from '../components/NewGameButton'
 
 class PlayContainer extends Component {
   constructor(props){
@@ -18,18 +17,23 @@ class PlayContainer extends Component {
     }
 
     this.handleClick = this.handleClick.bind(this)
-    this.saveGame = this.saveGame.bind(this)
+    this.newGame = this.newGame.bind(this)
   }
 
-  saveGame(event) {
-    let deck = this.props.decks.filter(d => d.id === this.props.useDeckId)[0]
-    this.props.updateDeck(deck)
+  newGame(event) {
+    event.preventDefault()
+    this.props.setDeckId(-1)
   }
 
   handleClick(event) {
     let arrayLoc = parseInt(event.target.name)
+    let cards
+    let chosenCard
     if (this.props.cards[arrayLoc] === null) {
-      this.props.drawCard(this.props.deck, arrayLoc)
+      cards = this.props.deck.cards.filter(c => c.location === "deck")
+      chosenCard = cards[Math.floor(Math.random()*cards.length)]
+      chosenCard.location = "table"
+      this.props.drawCard(chosenCard, arrayLoc)
     }
   }
 
@@ -46,9 +50,8 @@ class PlayContainer extends Component {
       <br />
       <Card handleClick={this.handleClick} card={this.props.cards[4]} name="4"/>
       <br />
-        <div className="save">
-        <SaveButton saveGame={this.saveGame}/>
-        </div>
+
+      <NewGameButton newGame={this.newGame} />
       </div>
     )
   }
@@ -63,4 +66,4 @@ const mapStateToProps = (state) => {
   }
 }
 
-export default connect(mapStateToProps, { drawCard, updateDeck }) (PlayContainer)
+export default connect(mapStateToProps, { updateDeck, setDeckId }) (PlayContainer)

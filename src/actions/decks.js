@@ -29,9 +29,24 @@ export const setDeckId = (deck) => {
   return {type: "SET_DECK_ID", deck }
 }
 
-export const drawCard = (deck, loc) =>{
-  console.log("action")
-  return {type: "DRAW_CARD", deck, loc}
+export const drawCard = (card, loc) =>{
+
+  let data = {
+    method: 'PATCH',
+    headers: {
+      'Accept': 'application/json',
+      'Content-Type': 'application/json',
+    },
+    body: JSON.stringify({ card })
+  }
+
+  return dispatch => {
+    fetch('http://localhost:3000/api/card/' + card.id, data)
+    .then(resp => resp.json())
+    .then(deck => dispatch({ type: 'UPDATE_CARD', card, loc }))
+    .catch(err => console.log(err))
+  }
+
 }
 
 

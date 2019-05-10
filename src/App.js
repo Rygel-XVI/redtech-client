@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux'
-import { BrowserRouter as Router, Route, Switch } from 'react-router-dom'
+import { BrowserRouter as Router, Route, Switch, NavLink } from 'react-router-dom'
 import './App.css';
 
 import SelectDeckContainer from './containers/SelectDeckContainer'
@@ -23,7 +23,10 @@ class App extends Component {
         <Router>
 
           <React.Fragment>
+          <NavLink className='navlink' to="/">Choose New Game</NavLink>
+
           <Switch>
+
              <Route exact path="/" render={(props) =>  <SelectDeckContainer
                                                          decks={this.props.decks}
                                                          useDeckId={this.props.useDeckId}
