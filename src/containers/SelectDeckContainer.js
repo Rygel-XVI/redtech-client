@@ -4,7 +4,7 @@ import { connect } from 'react-redux'
 import ChooseDeckButton from '../components/ChooseDeckButton'
 import Continue from '../components/Continue'
 import Deck from '../components/Deck'
-import {setDeckId, deleteDeck} from '../actions/decks'
+import {setDeckId, deleteDeck, createDeck} from '../actions/decks'
 
 
 class SelectDeckContainer extends Component {
@@ -97,4 +97,4 @@ class SelectDeckContainer extends Component {
 
 // export default SelectDeckContainer
 
-export default connect(null, { setDeckId, deleteDeck }) (SelectDeckContainer);
+export default connect(null, { setDeckId, deleteDeck, createDeck }) (SelectDeckContainer);

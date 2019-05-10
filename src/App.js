@@ -33,8 +33,6 @@ class App extends Component {
                                                          decks={this.props.decks}
                                                          useDeckId={this.props.useDeckId}
                                                          deckChosen={this.props.deckChosen}
-                                                         createDeck={this.props.createDeck}
-                                                         setDeckId={this.props.setDeckId}
                                                          />
 } />
              <Route path="/pick5/:useDeckId/play" render={(props) => <PlayContainer
