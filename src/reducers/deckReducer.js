@@ -21,7 +21,7 @@ export default function deckReducer( state={ decks:[], deck: null, cards: [null,
 
     case "DELETE_DECK":
       updatedDecks = state.decks.filter(deck => deck.id !== action.id)
-      return {...state, decks: updatedDecks}
+      return {...state, decks: updatedDecks, useDeckId: -1}
 
     case "UPDATE_CARD":
 

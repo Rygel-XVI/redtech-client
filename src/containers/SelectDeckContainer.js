@@ -39,7 +39,6 @@ class SelectDeckContainer extends Component {
 // handles deletion of decks
   handleDelete(event) {
     event.preventDefault()
-    console.log(event.target.name)
     this.props.deleteDeck(parseInt(event.target.name))
   }
 

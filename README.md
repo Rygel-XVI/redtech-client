@@ -11,3 +11,9 @@ To use the app please clone both the front and back end repos then npm install t
 Start the Rails server first with rails s
 
 After starting the Rails server start React with npm start and hit enter when asked if it should use a different port.
+
+
+
+## Known Bugs
+
+  When choosing an old deck, you can currently delete it and then choose the deck that is no longer available. To be fixed by removing the button after clicking delete.
