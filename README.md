@@ -19,3 +19,7 @@ After starting the Rails server start React with npm start and hit enter when as
 Turning over a card currently does not work due to something with webpack. The path location is correct though.
 
 Have to rename the jpg files for aces (A) to 1, jacks (J to 11), queens (Q) to 12, kings (K) to 13 so routes are consistent.
+
+
+PlayContainer!!
+Added another component Card2 that shows how the cards change properly due to issue with image loading change to Card component for images.

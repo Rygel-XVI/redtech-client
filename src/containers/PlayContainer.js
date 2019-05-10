@@ -3,7 +3,10 @@ import { connect } from 'react-redux'
 import {setDeckId, updateDeck, drawCard} from '../actions/decks'
 
 import Card from '../components/Card'
+import Card2 from '../components/Card2'
 
+// due to issues with loading dynamic images I added old code for Card2 to allow you to see how the cards are drawn properly
+// Card component can be used to see my code for implementing the images.
 class PlayContainer extends Component {
   constructor(props){
     super(props)
@@ -40,15 +43,15 @@ class PlayContainer extends Component {
   render() {
     return (
       <div className="card-container">
-      <Card handleClick={this.handleClick} card={this.props.cards[0]} name="0"/>
+      <Card2 handleClick={this.handleClick} card={this.props.cards[0]} name="0"/>
       <br />
-      <Card handleClick={this.handleClick} card={this.props.cards[1]} name="1"/>
+      <Card2 handleClick={this.handleClick} card={this.props.cards[1]} name="1"/>
       <br />
-      <Card handleClick={this.handleClick} card={this.props.cards[2]} name="2"/>
+      <Card2 handleClick={this.handleClick} card={this.props.cards[2]} name="2"/>
       <br />
-      <Card handleClick={this.handleClick} card={this.props.cards[3]} name="3"/>
+      <Card2 handleClick={this.handleClick} card={this.props.cards[3]} name="3"/>
       <br />
-      <Card handleClick={this.handleClick} card={this.props.cards[4]} name="4"/>
+      <Card2 handleClick={this.handleClick} card={this.props.cards[4]} name="4"/>
       <br />
       </div>
     )
