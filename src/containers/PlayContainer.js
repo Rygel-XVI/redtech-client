@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux'
-import {setDeckId, updateDeck} from '../actions/decks'
+import {setDeckId, updateDeck, drawCard} from '../actions/decks'
 
 import Card from '../components/Card'
 import NewGameButton from '../components/NewGameButton'
@@ -66,4 +66,4 @@ const mapStateToProps = (state) => {
   }
 }
 
-export default connect(mapStateToProps, { updateDeck, setDeckId }) (PlayContainer)
+export default connect(mapStateToProps, { updateDeck, setDeckId, drawCard }) (PlayContainer)

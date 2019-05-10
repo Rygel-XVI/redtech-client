@@ -45,9 +45,13 @@
   background-color: #5999c1;
 }
 
-.save {
-  display: flex;
-  flex-direction: row;
-  align-self: flex-end;
 
+.navlink {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  width: 200px;
+  padding: 1%;
+  margin: 5%;
+  color: grey;
 }
