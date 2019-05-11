@@ -23,8 +23,8 @@ class App extends Component {
         <Router>
 
           <React.Fragment>
-          <div>
-          <NavLink className='navlink' to="/">Choose New Game</NavLink>
+          <div className='navlink'>
+          <NavLink  to="/">Choose New Game</NavLink>
           </div>
           <br />
           <Switch>

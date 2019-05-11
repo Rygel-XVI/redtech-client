@@ -40,6 +40,10 @@ class PlayContainer extends Component {
     }
   }
 
+  // rednerCards() {
+  //   0..4
+  // }
+
   render() {
     return (
       <div className="card-container">
