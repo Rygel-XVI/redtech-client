@@ -10,13 +10,7 @@ import Card2 from '../components/Card2'
 class PlayContainer extends Component {
   constructor(props){
     super(props)
-    this.state = {
-      card1: null,
-      card2: null,
-      card3: null,
-      card4: null,
-      card5: null,
-    }
+
 
     this.handleClick = this.handleClick.bind(this)
     this.newGame = this.newGame.bind(this)
@@ -40,23 +34,18 @@ class PlayContainer extends Component {
     }
   }
 
-  // rednerCards() {
-  //   0..4
-  // }
+  renderCards() {
+    let index = -1
+    return this.props.cards.map (card => {
+      index++
+      return <Card card={card} handleClick={this.handleClick} name={index} />
+    })
+  }
 
   render() {
     return (
       <div className="card-container">
-      <Card2 handleClick={this.handleClick} card={this.props.cards[0]} name="0"/>
-      <br />
-      <Card2 handleClick={this.handleClick} card={this.props.cards[1]} name="1"/>
-      <br />
-      <Card2 handleClick={this.handleClick} card={this.props.cards[2]} name="2"/>
-      <br />
-      <Card2 handleClick={this.handleClick} card={this.props.cards[3]} name="3"/>
-      <br />
-      <Card2 handleClick={this.handleClick} card={this.props.cards[4]} name="4"/>
-      <br />
+        {this.renderCards()}
       </div>
     )
   }
